@@ -1,0 +1,30 @@
+.input {
+  height: 40px;
+  width: 80%;
+  padding: 0 10px;
+  margin: 5px 10px;
+  background-color: #2a2740;
+  border-radius: 15px;
+
+  border: 0;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.btn {
+  padding: 13px 35px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #1c1a2b;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  position: relative;
+
+  &:hover {
+    background-color: #14121e;
+  }
+}

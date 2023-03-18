@@ -1,0 +1,45 @@
+.block {
+  width: 30px;
+  height: 30px;
+  background-color: #14121e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  align-self: center;
+  padding: 20px 0;
+}
+
+.mine {
+}
+
+// .mistake {
+//   background-color: red;
+// }
+
+.open {
+  background-color: #2a2740;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.bomb {
+  z-index: 100;
+  position: absolute;
+}

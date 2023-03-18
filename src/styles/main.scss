@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  background-color: #2a2740;
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+.settings-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.settings-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.settings-exit {
+  opacity: 1;
+}
+.settings-exit-active {
+  opacity: 0;
+  transition: opacity 400ms, transform 0.3s ease;
+}
