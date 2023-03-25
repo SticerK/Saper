@@ -2,13 +2,26 @@
   height: 40px;
   width: 80%;
   padding: 0 10px;
-  margin: 5px 10px;
+  margin: 5px auto;
   background-color: #2a2740;
   border-radius: 15px;
-
+  display: block;
   border: 0;
   color: white;
   letter-spacing: 1px;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.error {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
 }
 
 .btn {

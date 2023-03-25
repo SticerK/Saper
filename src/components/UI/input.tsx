@@ -6,9 +6,10 @@ import styles from './UI.module.scss';
 type InputProps = {
   ph: string;
   name: string;
+  error: string;
 };
 
-const Input: React.FC<InputProps> = ({ ph, name }) => {
+const Input: React.FC<InputProps> = ({ ph, name, error }) => {
   const [value, setValue] = React.useState('');
   const dispatch = useDispatch();
 
@@ -17,14 +18,17 @@ const Input: React.FC<InputProps> = ({ ph, name }) => {
   }, [value]);
 
   return (
-    <input
-      className={styles.input}
-      type='text'
-      placeholder={ph}
-      name={name}
-      value={value}
-      onChange={({ target }) => setValue(target.value)}
-    />
+    <div className={styles.wrapper}>
+      <input
+        className={styles.input}
+        type='text'
+        placeholder={ph}
+        name={name}
+        value={value}
+        onChange={({ target }) => setValue(target.value)}
+      />
+      <p className={styles.error}>{error}</p>
+    </div>
   );
 };
 
