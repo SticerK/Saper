@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  background-color: #2a2740;
+  border-radius: 20px;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
+
+  &:hover .plus {
+    color: rgb(143, 143, 143);
+  }
+}
+
+.subtitle {
+  margin-top: 10px;
+}
+
+.progressItems {
+  padding-top: 40px;
+  margin: 10px 20px 30px;
+}
+
+.progress {
+  width: 100px;
+  height: 100px;
+}
+
+.email {
+  font-size: 20px;
+  margin: 10px 20px 30px;
+}
+
+.text {
+  font-size: 15px;
+  margin: 7px 20px;
+}
+
+.title {
+  font-size: 40px;
+  color: white;
+  margin: 10px 20px;
+}
+
+.plus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  transition: color 0.3s ease;
+}
+
+.file {
+  opacity: 0;
+  z-index: -100;
+}
+
+.progressItems {
+  display: flex;
+  gap: 40px;
+}
+
+.subtitle {
+  text-align: center;
+}

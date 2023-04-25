@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +15,12 @@ body {
 
 .hide {
   opacity: 0;
-  display: none;
+  z-index: -1000;
+  position: absolute;
+}
+
+h1 {
+  margin: 0;
 }
 
 .settings-enter {

@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.field {
+  width: 30px;
+  height: 30px;
+  background-color: silver;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.mine {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+}

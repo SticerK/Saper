@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
 type ModalProps = {
-  hidden?: boolean;
+  hide?: boolean;
 };
 
-const Modal: React.FC<PropsWithChildren<ModalProps>> = ({ children, hidden }) => {
-  const { losing } = useSelector((state: RootState) => state.settingsSlice);
+const Modal: React.FC<PropsWithChildren<ModalProps>> = ({ children, hide }) => {
   return <div className={styles.wrapper}>{children}</div>;
 };
 

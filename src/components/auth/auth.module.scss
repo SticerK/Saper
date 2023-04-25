@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.reg {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+  width: 170px;
+  display: block;
+  &:hover {
+    color: rgb(171, 171, 171);
+  }
+}

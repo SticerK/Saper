@@ -63,7 +63,10 @@ const settingsSlice = createSlice({
       else {
         state.arrayPlayer = state.arrayPlayer.filter((item) => item !== action.payload);
       }
-      state.win = state.arrayMines.every((item, index) => state.arrayPlayer.includes(item));
+      state.win = state.arrayMines.every((item) => state.arrayPlayer.includes(item));
+    },
+    createRecord(state, action: PayloadAction<number>) {
+      localStorage.setItem('timer', JSON.stringify(action.payload));
     },
   },
 });

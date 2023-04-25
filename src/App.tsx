@@ -1,15 +1,19 @@
 import React from 'react';
-import Settings from './components/settings/settings';
-import { useSelector } from 'react-redux';
-import { RootState } from './components/store/store';
-import Field from './components/field';
-import Win from './components/win';
+import { Routes, Route } from 'react-router-dom';
+import MainSpace from './components/mainSpace';
+import Login from './components/auth/login';
+import Register from './components/auth/register';
+import Profile from './components/profile';
 
 const App: React.FC = () => {
-  const { enter, win } = useSelector((state: RootState) => state.settingsSlice);
-
-  if (win) return <Win />;
-
-  return <>{!enter ? <Settings /> : <Field />}</>;
+  return (
+    <Routes>
+      <Route path='/auth/login' element={<Login />} />
+      <Route path='/auth/register' element={<Register />} />
+      <Route path='/profile/:id' element={<Profile />} />
+      <Route path='/' element={<MainSpace />} />
+    </Routes>
+  );
 };
+
 export default App;

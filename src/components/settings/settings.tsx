@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './settings.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import Input from '../UI/input';
+import Input2 from '../UI/input_2';
 import Button from '../UI/button';
 import { enterGame } from '../redux/settingsSlice';
 import Modal from '../modal';
@@ -63,11 +63,11 @@ const Settings: React.FC = () => {
 
   return (
     <CSSTransition nodeRef={nodeRef} in={animate} timeout={2000} classNames={'settings'}>
-      <div ref={nodeRef} className={enter ? 'hide' : ''} style={{ height: '100%' }}>
-        <Modal hidden={false}>
+      <div ref={nodeRef} style={{ height: '100%' }}>
+        <Modal>
           <div className={styles.title}>Введите параметры поля</div>
           {settingInputs.map((item) => (
-            <Input ph={item.ph} name={item.nameInput} error={errors[item.nameInput]} />
+            <Input2 ph={item.ph} name={item.nameInput} error={errors[item.nameInput]} />
           ))}
           <Button click={enterSettings}>Принять</Button>
         </Modal>

@@ -9,6 +9,26 @@
   border: 0;
   color: white;
   letter-spacing: 1px;
+  transition: font-size 0.3s ease;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus + .placeholder {
+    top: -2px;
+    font-size: 12px;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 30%;
+  left: 12%;
+  color: rgb(202, 201, 201);
+  width: 100%;
+  transition: top 0.3s ease, font-size 0.3s ease;
+  cursor: text;
 }
 
 .wrapper {
@@ -19,13 +39,15 @@
 .error {
   position: absolute;
   top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
   color: red;
 }
 
 .btn {
-  padding: 13px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   font-size: 12px;
   letter-spacing: 1px;
@@ -36,6 +58,9 @@
   text-transform: uppercase;
   transition: background 0.3s ease;
   position: relative;
+  margin: 0 auto 30px;
+  width: 200px;
+  height: 40px;
 
   &:hover {
     background-color: #14121e;

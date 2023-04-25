@@ -6,10 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { enterGame, newGame } from '../redux/settingsSlice';
 import { RootState } from '../store/store';
 import Game from '../game';
+import { endGame } from '../redux/userSlice';
 
 const Again: React.FC = () => {
   const dispath = useDispatch();
   const { losing } = useSelector((state: RootState) => state.settingsSlice);
+
+  React.useEffect(() => {
+    dispath(endGame(false));
+  });
 
   const onAgain = () => {
     dispath(enterGame());
@@ -26,17 +31,15 @@ const Again: React.FC = () => {
   }, []);
 
   return (
-    <div className={losing ? '' : 'hide'} tabIndex={0}>
-      <Modal hidden={true}>
-        <div className={styles.wrapper}>
-          <Button click={() => dispath(newGame())}>Начать заново</Button>
-          <Button click={() => onAgain()}>
-            <div>Перезагрузить</div>
-            <div className={styles.help}>Enter</div>
-          </Button>
-        </div>
-      </Modal>
-    </div>
+    <Modal hide={losing}>
+      <div className={styles.wrapper}>
+        <Button click={() => dispath(newGame())}>Начать заново</Button>
+        <Button click={() => onAgain()}>
+          <div>Перезагрузить</div>
+          <div className={styles.help}>Enter</div>
+        </Button>
+      </div>
+    </Modal>
   );
 };
 

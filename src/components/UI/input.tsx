@@ -1,33 +1,72 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 import { addParams } from '../redux/settingsSlice';
 import styles from './UI.module.scss';
+import { Values } from '../auth/login';
+import { ValidateV2 } from '../utils/validateV2';
+import { log } from 'console';
 
 type InputProps = {
-  ph: string;
+  placeholder: string;
   name: string;
-  error: string;
+  value: string;
+  key: number;
+  type: string;
+  onHandle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  errors?: boolean;
+  validForm?: (x: number, y: boolean) => void;
+  idx?: number;
 };
 
-const Input: React.FC<InputProps> = ({ ph, name, error }) => {
-  const [value, setValue] = React.useState('');
-  const dispatch = useDispatch();
+const Input: React.FC<InputProps> = ({
+  placeholder,
+  name,
+  value,
+  onHandle,
+  key,
+  type,
+  idx,
+  validForm,
+  ...arg
+}) => {
+  const nodeRef = React.useRef<HTMLInputElement>(null);
+  const [error, setError] = React.useState([false, '']);
 
-  React.useEffect(() => {
-    dispatch(addParams({ name, value }));
-  }, [value]);
+  const handleClickPH = () => {
+    nodeRef.current?.focus();
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onHandle(e);
+  };
+
+  const isValid = () => {
+    setError(ValidateV2(arg, nodeRef.current?.value));
+    if (validForm !== undefined && idx !== undefined) {
+      //какая-то залупа
+
+      validForm(idx, Boolean(nodeRef.current?.dataset.valid));
+    }
+  };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} key={key}>
       <input
+        data-valid={!error[0]}
+        ref={nodeRef}
         className={styles.input}
-        type='text'
-        placeholder={ph}
+        type={type}
         name={name}
         value={value}
-        onChange={({ target }) => setValue(target.value)}
+        onChange={handleChange}
+        onBlur={isValid}
       />
-      <p className={styles.error}>{error}</p>
+      {!value && (
+        <div className={styles.placeholder} onClick={handleClickPH}>
+          {placeholder}
+        </div>
+      )}
+
+      {error[0] && <p className={styles.error}>{error[1]}</p>}
     </div>
   );
 };

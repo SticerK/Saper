@@ -9,11 +9,11 @@ import { addMines } from './redux/settingsSlice';
 import { useDispatch } from 'react-redux';
 
 const Field: React.FC = () => {
-  const { losing } = useSelector((state: RootState) => state.settingsSlice);
+  const { losing, enter } = useSelector((state: RootState) => state.settingsSlice);
   const dispath = useDispatch();
   React.useEffect(() => {
     dispath(addMines());
-  }, []);
+  }, [enter]);
 
   return losing ? (
     <Again />
